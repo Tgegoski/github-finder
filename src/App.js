@@ -8,7 +8,8 @@ import './App.css';
 class App extends Component {
   state = {
     users: [],
-    loading: false
+    loading: false,
+    alert: null
   };
 
   
@@ -26,6 +27,10 @@ class App extends Component {
 
   clearUsers = () => this.setState({ users: [], loading: false});
 
+  setAlert = (msg, type) => {
+    this.setState({ alert: { msg, type }});
+  }
+
   render() {
     const { users, loading } = this.state;
     return (
@@ -35,7 +40,9 @@ class App extends Component {
       <Search 
       searchUsers={this.searchUsers} 
       clearUsers={this.clearUsers}
-      showClear={users.length > 0 ? true : false} />
+      showClear={users.length > 0 ? true : false} 
+      setAlert={this.setAlert}
+      />
       <Users loading={loading} users={users} />
       </div>
     </div>
