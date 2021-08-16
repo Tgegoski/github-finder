@@ -16,7 +16,6 @@ class App extends Component {
     loading: false,
     alert: null
   };
-
   
   searchUsers = async text => {
     this.setState({ loading: true });
@@ -27,8 +26,9 @@ class App extends Component {
     }&client_secret=$
     {process.env.REACT_APP_GITHUB_CLIENT_SECRET}`)
 
-    this.setState({ user: res.data, loading: false });
+    this.setState({ users: res.data.items, loading: false });
   };
+
 // Get a single Github user
   getUser = async (username) => {
     this.setState({ loading: true });
@@ -39,7 +39,7 @@ class App extends Component {
     }&client_secret=$
     {process.env.REACT_APP_GITHUB_CLIENT_SECRET}`)
 
-    this.setState({ users: res.data.items, loading: false });
+    this.setState({ user: res.data, loading: false });
   }
 
   clearUsers = () => this.setState({ users: [], loading: false});
