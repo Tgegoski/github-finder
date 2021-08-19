@@ -6,6 +6,7 @@ import User from './components/users/User';
 import Search from './components/users/Search';
 import Alert from './components/layout/Alert';
 import About from './components/pages/About';
+import Repos from './components/repos/Repos';
 import axios from 'axios';
 import './App.css';
 
@@ -13,9 +14,9 @@ class App extends Component {
   state = {
     users: [],
     user: [],
+    repos: [],
     loading: false,
-    alert: null,
-    repos: []
+    alert: null    
   };
   
   searchUsers = async text => {
@@ -48,7 +49,7 @@ class App extends Component {
     this.setState({ loading: true });
 
   const res = await axios.get(
-      `https://api.github.com/users/${username}repos?per_page=5&sort=created:asc&client_id=${
+      `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${
       process.env.REACT_APP_GITHUB_CLIENT_ID
       }&client_secret=$
       {process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
