@@ -69,14 +69,15 @@ const App = () => {
       <div className='container'>
       <Alert alert={alert} />
       <Switch>
-        <Route exact path='/' render={props => (
+        <Route exact path='/' 
+        render={props => (
       <Fragment>
       <Search  
       clearUsers={clearUsers}
       showClear={users.length > 0 ? true : false} 
       setAlert={showAlert}
       />
-      <Users loading={loading} users={users} />
+      <Users />
       </Fragment>
       )}         
       />
