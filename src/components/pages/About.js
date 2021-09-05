@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-export const About = () => {
+const About = () => {
     return (
         <Fragment>
           <h1>About This App</h1>  
@@ -8,6 +8,6 @@ export const About = () => {
           <p>Version 1.0.0</p>
         </Fragment>
     )
-}
+  }
 
 export default About;
